@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif !important;
+  box-sizing: border-box;
 }
 
 body {
@@ -138,11 +139,13 @@ body {
 .whyUs .container .feature-gird .feature {
   border-radius: 12px;
   padding: 32px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
+  border: 2px solid transparent;
   gap: 12px;
 }
 .whyUs .container .feature-gird .feature .icon {
@@ -152,10 +155,12 @@ body {
   border-radius: 50%;
   display: flex;
   align-items: center;
+  transition: all 0.5s ease-in-out;
   justify-content: center;
 }
 .whyUs .container .feature-gird .feature .icon img {
   height: 45px;
+  transition: all 0.5s ease-in-out;
 }
 .whyUs .container .feature-gird .feature h3 {
   font-size: 16px;
@@ -166,6 +171,17 @@ body {
   text-align: center;
   margin-top: 4px;
   color: #0b4461;
+}
+.whyUs .container .feature-gird .feature:hover {
+  box-shadow: none;
+  border-color: #46b58b;
+  border-radius: 12px 0 12px 0;
+}
+.whyUs .container .feature-gird .feature:hover .icon {
+  background-color: #46b58b;
+}
+.whyUs .container .feature-gird .feature:hover .icon img {
+  filter: brightness(0) invert(1);
 }
 
 .statics {
@@ -212,6 +228,11 @@ body {
   margin-top: 32px;
   gap: 14px;
 }
+@media (max-width: 576px) {
+  .statics .statistics {
+    gap: 32px;
+  }
+}
 .statics .statistics .static {
   min-width: 200px;
   gap: 32px;
@@ -220,6 +241,11 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 8px;
+}
+@media (max-width: 576px) {
+  .statics .statistics .static {
+    min-width: 150px;
+  }
 }
 .statics .statistics .static h2 {
   color: #ffffff;
@@ -314,6 +340,10 @@ body {
   outline: nonr;
   cursor: pointer;
   color: #ffffff;
+  transition: all 0.5s ease-in-out;
+}
+.about .row .co-50 .content button:hover {
+  background: #46b58b;
 }
 @media (max-width: 768px) {
   .about .row {
@@ -321,7 +351,7 @@ body {
     gap: 24px;
   }
   .about .row .co-50 {
-    width: calc(100% - 32px);
+    width: 100%;
   }
   .about .row .co-50 .content {
     padding: 0;
@@ -429,4 +459,7 @@ body {
 }
 .toogler {
   background: #0b4461 !important;
+}
+.toogler svg {
+  color: #ffffff !important;
 }/*# sourceMappingURL=custom.css.map */

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import worldMap from "../assets/img/World Map.svg";
 
 const LandingStatics = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
-
   useEffect(
     () => {
       const startAnimation = () => {
@@ -50,6 +51,14 @@ const LandingStatics = () => {
     },
     [animationStarted]
   );
+  useEffect(() => {
+    AOS.init({
+      offset: 20,
+      delay: 50,
+      duration: 750,
+      once: true
+    });
+  }, []);
   const [statistics, setStatistics] = useState({
     downloads: 0,
     starsRate: 0,
@@ -60,34 +69,34 @@ const LandingStatics = () => {
     <section className="statics">
       <div className="container">
         <div className="header">
-          <p>Industry knowlege</p>
-          <h2>
+          <p data-aos="fade-up">Industry knowlege</p>
+          <h2 data-aos="fade-up">
             Powering innovation <br /> across industries, globally.
           </h2>
         </div>
         <div className="img">
-          <img src={worldMap} alt="" />
+          <img data-aos="zoom-in" src={worldMap} alt="" />
         </div>
         <div className="statistics">
-          <div className="static">
+          <div className="static" data-aos="fade-up">
             <h2>
               +{statistics.downloads.toFixed(0)} K
             </h2>
             <h3>downloads</h3>
           </div>
-          <div className="static">
+          <div className="static" data-aos="fade-up">
             <h2>
               +{statistics.starsRate.toFixed(0)} K
             </h2>
             <h3>5 Stars Rate</h3>
           </div>
-          <div className="static">
+          <div className="static" data-aos="fade-up">
             <h2>
               +{statistics.deliveryEfficiency.toFixed(0)} %
             </h2>
             <h3>Delivery Efficiency</h3>
           </div>
-          <div className="static">
+          <div className="static" data-aos="fade-up">
             <h2>
               +{statistics.localCoverage.toFixed(0)} city
             </h2>

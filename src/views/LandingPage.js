@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Header from "components/Header/Header.js";
 import HomeFooter from "components/Footer/HomeFooter.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -6,33 +8,25 @@ import LandingSlider from "./LandingSlider";
 import LandingWhyUs from "./LandingWhyUs";
 import LandingStatics from "./LandingStatics";
 import LandingAbout from "./LandingAbout";
-// import Hero from "../components/Hero";
-// import Download from "../components/Download";
-// import { useSelector } from "react-redux";
+
 const dashboardRoutes = [];
 export default function LandingPage(props) {
-  // const auth = useSelector(state => state.auth);
   const { ...rest } = props;
-  // const [role, setRole] = useState();
-  // useEffect(
-  //   () => {
-  //     if (auth && auth.profile) {
-  //       if (auth.profile.uid) {
-  //         let role = auth.profile.usertype;
-  //         if (
-  //           role === "admin" ||
-  //           role === "fleetadmin" ||
-  //           role === "customer"
-  //         ) {
-  //           setRole("customer");
-  //         } else if (role === "driver") {
-  //           setRole("driver");
-  //         }
-  //       }
-  //     }
-  //   },
-  //   [auth]
-  // );
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    sections.forEach(section => {
+      const sectionDivs = section.querySelectorAll("[data-aos]");
+      sectionDivs.forEach((element, index) => {
+        element.setAttribute("data-aos-delay", (index + 1) * 100);
+      });
+    });
+    AOS.init({
+      offset: 20,
+      delay: 50,
+      duration: 750,
+      once: true
+    });
+  }, []);
   return (
     <div>
       <Header
