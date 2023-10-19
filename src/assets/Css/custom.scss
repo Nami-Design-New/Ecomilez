@@ -175,6 +175,9 @@ body {
       font-family: 'Roboto', sans-serif;
       font-weight: 600;
       line-height: 1.3;
+      @media (max-width:576px) {
+        font-size: 28px;
+      }
     }
   }
   .img {
@@ -191,6 +194,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 32px;
+    gap: 14px;
     .static {
       min-width: 200px;
       gap: 32px;
@@ -296,9 +300,12 @@ body {
       flex-direction: column;
       gap: 24px;
       .co-50 {
-        width: 100%;
+        width: calc(100% - 32px);
         .content {
           padding: 0;
+          h2{
+            font-size: 36px;
+          }
         }
       }
     }
@@ -310,6 +317,7 @@ body {
   .row {
     width: 100%;
     display: grid;
+    gap: 16px;
     grid-template-columns: repeat(3, 1fr);
     @media (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
