@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import reliableServices from "../assets/img/ReliableServices.svg";
 import networksymbol from "../assets/img/networksymbol.svg";
 import teamwork from "../assets/img/teamwork.svg";
@@ -57,7 +57,7 @@ const LandingWhyUs = () => {
       offset: 20,
       delay: 50,
       duration: 750,
-      once: true,
+      once: true
     });
   }, []);
   return (
@@ -65,9 +65,14 @@ const LandingWhyUs = () => {
       <div className="container">
         <h2>Reasons Behind Our Popularity</h2>
         <div className="feature-gird">
-          {features.map(feature => {
+          {features.map((feature, index) => {
             return (
-              <div className="feature" key={feature.id} data-aos="fade-up">
+              <div
+                className="feature"
+                key={feature.id}
+                data-aos="fade-up"
+                data-aos-delay={200 * index}
+              >
                 <div className="icon">
                   <img src={feature.icon} alt="icon" />
                 </div>
