@@ -1,21 +1,11 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import about from "../assets/img/about.jpg";
+import about from "../assets/img/about.png";
 import icon1 from "../assets/img/icon-1.svg";
 import icon2 from "../assets/img/icon-2.svg";
 
 const LandingAbout = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    AOS.init({
-      offset: 20,
-      delay: 50,
-      duration: 750,
-      once: true,
-    });
-  }, []);
   return (
     <section className="about">
       <div className="container">

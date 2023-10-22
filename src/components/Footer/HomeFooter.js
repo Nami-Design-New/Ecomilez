@@ -81,11 +81,11 @@ export default function HomeFooter() {
             <ul className="info">
               <li>
                 <img src={marker} alt="icon" />
-                <p>Eighth district Sixth region Nasr City Cairo Governorate</p>
+                <p>New Maadi , Cairo ,Egypt</p>
               </li>
               <li>
                 <img src={email} alt="icon" />
-                <a href="mailto:Ecomilez@gmail.com">Ecomilez@gmail.com</a>
+                <a href="mailto:ecomilez@gmail.com">ecomilez@gmail.com</a>
               </li>
               <li>
                 <img src={phone} alt="icon" />

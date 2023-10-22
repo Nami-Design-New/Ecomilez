@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import worldMap from "../assets/img/World Map.svg";
 
 const LandingStatics = () => {
@@ -51,14 +50,6 @@ const LandingStatics = () => {
     },
     [animationStarted]
   );
-  useEffect(() => {
-    AOS.init({
-      offset: 20,
-      delay: 50,
-      duration: 750,
-      once: true
-    });
-  }, []);
   const [statistics, setStatistics] = useState({
     downloads: 0,
     starsRate: 0,

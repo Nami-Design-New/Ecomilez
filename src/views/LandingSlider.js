@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import 'aos/dist/aos.css';
+import React from "react";
 import slide from "../assets/img/s1.jpg";
 import { useNavigate } from "react-router-dom";
 const LandingSlider = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    AOS.init({
-      offset: 20,
-      delay: 50,
-      duration: 750,
-      once: true,
-    });
-  }, []);
   return (
     <section className="landing-slider">
       <img src={slide} className="home-img" alt="slide-1" />

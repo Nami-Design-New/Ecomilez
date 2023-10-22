@@ -1,120 +1,121 @@
 import React from "react";
-import classNames from "classnames";
-import { makeStyles } from "@mui/styles";
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import styles from '../styles/staticPages.js';
-import Parallax from "components/Parallax/Parallax";
-import { useTranslation } from "react-i18next";
-import Tooltip from "@mui/material/Tooltip";
 import { useSelector } from "react-redux";
-import ListItem from "@mui/material/ListItem";
-import IconButton from '@mui/material/IconButton';
+import HomeFooter from "components/Footer/HomeFooter.js";
+import SectionHeader from "components/SectionHeader";
+import marker from "../assets/img/marker.svg";
+import email from "../assets/img/email.svg";
+import phone from "../assets/img/phone.svg";
+import faceBook from "../assets/img/facebook.svg";
+import instagram from "../assets/img/instgram.svg";
+import twitter from "../assets/img/twitter.svg";
+
 const dashboardRoutes = [];
 
-const useStyles = makeStyles(styles);
-
 export default function ContactUs(props) {
-    const { t, i18n } = useTranslation();
-    const isRTL = i18n.dir();
-    const classes = useStyles();
-    const { ...rest } = props;
-    const settings = useSelector(state => state.settingsdata.settings);
-    return (
-        <div style={{margin:'-8px'}}>
-            <Header
-                color="transparent"
-                routes={dashboardRoutes}
-                rightLinks={<HeaderLinks />}
-                fixed
-                changeColorOnScroll={{
-                    height: 400,
-                    color: "white"
-                }}
-                {...rest}
-            />
-            <Parallax small filter image={require("assets/img/header-back.jpg").default} />
-            <div className={classNames(classes.main, classes.mainRaised)}>
-
-                <div className={classes.container}>
-                    <br />
-                    <h2 style={{ textAlign: isRTL === 'rtl' ? 'right' : 'left', position: "relative", marginTop: "30px", minHeight: "32px", color: "#383838", textDecoration: "none" }}>{t('contact_us')}</h2>
-                    <p className={classes.description} style={{ textAlign: isRTL === 'rtl' ? 'right' : 'left', color: 'black', fontSize: 20, fontWeight: 'bold',marginTop:30 }}>{settings.CompanyName}</p>
-                    <p className={classes.description} style={{ textAlign: isRTL === 'rtl' ? 'right' : 'left', color: 'black', fontSize: 16 }}>{settings.CompanyAddress}</p>
-                    {settings && settings.contact_email ?
-                        <p><span className={classes.description}>{t('email')}: </span>
-                            <a href={"mailto:" + settings.contact_email} className={classes.description}>{settings.contact_email}</a>
-                        </p>
-                        : null}
-                    {settings && settings.CompanyPhone ?
-                        <p className={classes.description}>{t('phone')}: {settings.CompanyPhone}</p>
-                        : null}
-                    <p className={classes.description} style={{ textAlign: isRTL === 'rtl' ? 'right' : 'left', color: 'black', marginTop: 10 }}>Follow Us</p>
-                    <div style={{ display: 'flex', width: 40, marginTop: -15,marginLeft:-27}}>
-                        {settings && settings.FacebookHandle ?
-                            <ListItem className={classes.listItem}>
-                                <Tooltip
-                                    id="instagram-facebook"
-                                    title={t('follow_facebook')}
-                                    placement={window.innerWidth > 959 ? "top" : "left"}
-                                    classes={{ tooltip: classes.tooltip }}
-                                >
-                                    <IconButton 
-                                        href={settings.FacebookHandle}
-                                        target="_blank"
-                                        className={classes.navLink}
-                                        style={{color:'#3b5998'}}
-                                    >
-                                        <i className={classes.socialIcons + " fab fa-facebook"}/>
-                                    </IconButton>
-                                </Tooltip>
-                            </ListItem>
-                            : null}
-                        {settings && settings.TwitterHandle ?
-                            <ListItem className={classes.listItem}>
-                                <Tooltip
-                                    id="instagram-twitter"
-                                    title={t('follow_twitter')}
-                                    placement={window.innerWidth > 959 ? "top" : "left"}
-                                    classes={{ tooltip: classes.tooltip }}
-                                >
-                                    <IconButton
-                                        href={settings.TwitterHandle}
-                                        target="_blank"
-                                        className={classes.navLink}
-                                        style={{color:'#00acee'}}
-                                    >
-                                        <i className={classes.socialIcons + " fab fa-twitter"} />
-                                    </IconButton>
-                                </Tooltip>
-                            </ListItem>
-                            : null}
-                             {settings && settings.InstagramHandle ?
-                            <ListItem className={classes.listItem}>
-                                <Tooltip
-                                    id="instagram-twitter"
-                                    title={t('follow_instagram')}
-                                    placement={window.innerWidth > 959 ? "top" : "left"}
-                                    classes={{ tooltip: classes.tooltip }}
-                                >
-                                    <IconButton
-                                        href={settings.InstagramHandle}
-                                        target="_blank"
-                                        className={classes.navLink}
-                                        style={{color:'#833AB4'}}
-                                    >
-                                        <i className={classes.socialIcons + " fab fa-instagram"} />
-                                    </IconButton>
-                                </Tooltip>
-                            </ListItem>
-                        : null }
-                    </div>
-                    <br />
+  const { ...rest } = props;
+  const settings = useSelector(state => state.settingsdata.settings);
+  return (
+    <div>
+      <Header
+        color="transparent"
+        routes={dashboardRoutes}
+        rightLinks={<HeaderLinks />}
+        fixed
+        changeColorOnScroll={{
+          height: 400,
+          color: "white"
+        }}
+        {...rest}
+      />
+      <SectionHeader />
+      <section className="contacts">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 col-12">
+              <div className="info">
+                <div className="text">
+                  <h3>Get in touch</h3>
+                  <p>
+                    We are always keen to hear from people that would like to
+                    add a new perspectives to our team.
+                  </p>
                 </div>
+                <ul>
+                  <li>
+                    <div className="icon">
+                      <img src={marker} alt="icon" />
+                    </div>
+                    <p>New Maadi , Cairo ,Egypt</p>
+                  </li>
+                  <li>
+                    <div className="icon">
+                      <img src={email} alt="icon" />
+                    </div>
+                    <a href="mailto:ecomilez@gmail.com">ecomilez@gmail.com</a>
+                  </li>
+                  <li>
+                    <div className="icon">
+                      <img src={phone} alt="icon" />
+                    </div>
+                    <a href="tel:+201020778430">01020778430</a>
+                  </li>
+                </ul>
+                <div className="social">
+                  <h6>Follow us on</h6>
+                  <ul>
+                    {settings && settings.FacebookHandle
+                      ? <li>
+                          <a
+                            href={settings.FacebookHandle}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img src={faceBook} alt="facebook" />
+                          </a>
+                        </li>
+                      : null}
+                    {settings && settings.InstagramHandle
+                      ? <li>
+                          <a
+                            href={settings.InstagramHandle}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img src={instagram} alt="facebook" />
+                          </a>
+                        </li>
+                      : null}
+                    {settings && settings.TwitterHandle
+                      ? <li>
+                          <a
+                            href={settings.TwitterHandle}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img src={twitter} alt="twitter" />
+                          </a>
+                        </li>
+                      : null}
+                  </ul>
+                </div>
+              </div>
             </div>
-
-            <Footer />
+            <div className="col-lg-6 col-12">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27643.226688739058!2d31.34229948916014!3d29.996573000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145838dfa7e82b9f%3A0x1436c0e5bedbd927!2sNew%20Maadi!5e0!3m2!1sar!2seg!4v1697976464005!5m2!1sar!2seg"
+                style={{ border: 0 }}
+                allowFullScreen
+                title="ourLocation"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
-    );
+      </section>
+      <HomeFooter />
+    </div>
+  );
 }

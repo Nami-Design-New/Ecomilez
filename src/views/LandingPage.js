@@ -8,6 +8,7 @@ import LandingSlider from "./LandingSlider";
 import LandingWhyUs from "./LandingWhyUs";
 import LandingStatics from "./LandingStatics";
 import LandingAbout from "./LandingAbout";
+import LandingDownloadApp from "./LandingDownloadApp";
 
 const dashboardRoutes = [];
 export default function LandingPage(props) {
@@ -42,6 +43,7 @@ export default function LandingPage(props) {
       />
       <LandingSlider />
       <LandingAbout />
+      <LandingDownloadApp />
       <LandingWhyUs />
       <LandingStatics />
       <HomeFooter />
